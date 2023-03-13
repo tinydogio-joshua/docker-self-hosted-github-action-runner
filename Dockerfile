@@ -10,6 +10,13 @@ RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
 # add git
 RUN apt-get -y install git
 
+# add node and yarn
+RUN apt-get update -yq \
+    && apt-get install curl gnupg -yq \
+    && curl -sL https://deb.nodesource.com/setup_16.x | bash \
+    && apt-get install nodejs -yq \
+    && npm install yarn -g
+
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
