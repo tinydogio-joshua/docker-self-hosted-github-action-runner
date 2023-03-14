@@ -1,5 +1,5 @@
 # base
-FROM ubuntu:22.04
+FROM mcr.microsoft.com/playwright:v1.26.1-focal
 
 # set the github runner version
 ARG RUNNER_VERSION="2.302.1"
